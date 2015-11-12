@@ -5,9 +5,9 @@ gems:
   - jemoji
   
 # Site settings
-title: "Mediator"
+title: "Elders"
 description: > # this means to ignore newlines until "email:"
-   A Jekyll theme - Medium inspired
+   Praxis
 
 email: a-mail@mail.mail
 #blog logo
@@ -15,14 +15,14 @@ logo: "/assets/images/df_logo.jpg"
 # blog cover
 cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
 
-name: 'Dirk Fabisch'
-author: 'Dirk Fabisch'
+name: 'Elders'
+author: 'Elders'
 author_image: "/assets/images/author.jpg"
 
 paginate:	5
 
-url: "http://myblog.***.***" # the base hostname & protocol for your site
-baseurl: ""
+url: "https://elders.github.io/Praxis/" # the base hostname & protocol for your site
+baseurl: "/Praxis"
 #used to display twitter cards
 twitter_handle: '@dirkfabisch'
 
