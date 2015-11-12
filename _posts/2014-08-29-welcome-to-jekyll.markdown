@@ -12,7 +12,7 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
-```ruby
+```
 def print_hi(name)
   puts "Hi, #{name}"
 end
@@ -31,16 +31,6 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
   </div>
 </footer>
 ```
-{% highlight js %}
-
-<footer class="site-footer">
- <a class="subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}"> <span class="tooltip"> <i class="fa fa-rss"></i> Subscribe!</span></a>
-  <div class="inner">a
-   <section class="copyright">All content copyright <a href="mailto:{{ site.email}}">{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.</section>
-   <section class="poweredby">Made with <a href="http://jekyllrb.com"> Jekyll</a></section>
-  </div>
-</footer>
-{% endhighlight %}
 
 ```c#
 public abstract class Publisher<TMessage> : IPublisher<TMessage> where TMessage : IMessage
@@ -66,31 +56,6 @@ public abstract class Publisher<TMessage> : IPublisher<TMessage> where TMessage 
     }
 }
 ```
-
-{% highlight c# %}
-public abstract class Publisher<TMessage> : IPublisher<TMessage> where TMessage : IMessage
-{
-    static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Publisher<TMessage>));
-
-    protected abstract bool PublishInternal(TMessage message, Dictionary<string, string> messageHeaders);
-
-    public bool Publish(TMessage message, Dictionary<string, string> messageHeaders)
-    {
-        try
-        {
-            PublishInternal(message, messageHeaders);
-            if (log.IsInfoEnabled)
-                log.Info("PUBLISH => " + message);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            log.Error(ex.Message, ex);
-            return false;
-        }
-    }
-}
-{% endhighlight %}
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
