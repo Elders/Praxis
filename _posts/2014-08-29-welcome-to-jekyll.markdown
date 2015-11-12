@@ -57,6 +57,82 @@ public abstract class Publisher<TMessage> : IPublisher<TMessage> where TMessage 
 }
 ```
 
+```html
+<div class="header gist-header header-logged-in" role="banner">
+  <div class="container clearfix">
+
+    <a href="/" aria-label="Gist Homepage" class="header-logo-wordmark" data-hotkey="g d">
+      <span class="mega-octicon octicon-logo-github"></span>
+      <span class="mega-octicon octicon-gist-logo"></span>
+</a>
+    <div class="site-search js-site-search" role="search">
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+  <label class="js-chromeless-input-container form-control">
+    <input type="text" class="js-site-search-focus chromeless-input js-navigation-enable js-quicksearch-field" data-hotkey="s" name="q" placeholder="Search…" tabindex="1" autocorrect="off" autocomplete="off" autocapitalize="off">
+  </label>
+
+    <div class="gist-quicksearch-results js-quicksearch-results js-navigation-container" data-quicksearch-url="/search/quick"></div>
+</form>
+    </div>
+    <ul class="header-nav left" role="navigation">
+      <li class="header-nav-item">
+        <a href="/discover" class="header-nav-link" data-ga-click="Header, go to all gists, text:all gists">All gists</a>
+      </li>
+
+      <li class="header-nav-item">
+        <a href="https://github.com" class="header-nav-link" data-ga-click="Header, go to GitHub, text:GitHub">GitHub</a>
+      </li>
+    </ul>
+
+      <ul class="header-nav user-nav right" id="user-links">
+        <li class="header-nav-item">
+          <a href="/" class="btn btn-sm" data-ga-click="Header, go to new gist, text:new gist">New gist</a>
+        </li>
+
+        <li class="header-nav-item dropdown js-menu-container">
+          <a class="header-nav-link name tooltipped tooltipped-s js-menu-target" href="#" aria-label="View profile and more" data-ga-click="Header, show menu, icon:avatar">
+            <img alt="@mynkow" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/183151?v=3&amp;s=40" width="20">
+            <span class="dropdown-caret"></span>
+          </a>
+
+          <div class="dropdown-menu-content js-menu-content">
+            <div class="dropdown-menu dropdown-menu-sw">
+              <div class="dropdown-header header-nav-current-user css-truncate">
+                Signed in as <strong class="css-truncate-target">mynkow</strong>
+              </div>
+              <div class="dropdown-divider"></div>
+
+              <a class="dropdown-item" href="/mynkow" data-ga-click="Header, go to your gists, text:your gists">
+                Your gists
+              </a>
+
+              <a class="dropdown-item" href="/mynkow/starred" data-ga-click="Header, go to starred gists, text:starred gists">
+                Starred gists
+              </a>
+
+              <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
+                Help
+              </a>
+
+              <div class="dropdown-divider"></div>
+
+              <a class="dropdown-item" href="https://github.com/mynkow" data-ga-click="Header, go to profile, text:your profile">
+                Your GitHub profile
+              </a>
+
+              <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/auth/github/logout" class="logout-form" data-form-nonce="bc76147bfc7be47d5a5220b92e4f29fb0bc0a33a" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="8/Yx1zdbE6o0x/1rRWscqvpaPz1RpaYN8uuToE5JFxEM04IPU35gDRz8ThbDtWcDKQ5xwPcGx1ZOGA/84nKGfw=="></div>
+                <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
+                  Sign out
+                </button>
+</form>            </div>
+          </div>
+        </li>
+      </ul>
+
+  </div>
+</div>
+```
+
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help
