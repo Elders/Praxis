@@ -32,6 +32,31 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 </footer>
 ```
 
+```CSharp
+public abstract class Publisher<TMessage> : IPublisher<TMessage> where TMessage : IMessage
+{
+    static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Publisher<TMessage>));
+
+    protected abstract bool PublishInternal(TMessage message, Dictionary<string, string> messageHeaders);
+
+    public bool Publish(TMessage message, Dictionary<string, string> messageHeaders)
+    {
+        try
+        {
+            PublishInternal(message, messageHeaders);
+            if (log.IsInfoEnabled)
+                log.Info("PUBLISH => " + message);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            log.Error(ex.Message, ex);
+            return false;
+        }
+    }
+}
+```
+
 
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
