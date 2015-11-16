@@ -1,0 +1,7 @@
+﻿{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=WSBPPLDSD04\\SqlExpress;Database=praxis_idsvr_local;User Id=sa;Password=sa"
+    }
+  }
+}

@@ -4,25 +4,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
+using Microsoft.Dnx.Runtime;
+using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
+using Praxis.IdentityManager.Models;
 
 namespace Praxis.IdentityManager
 {
     public class Startup
     {
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+        private IConfigurationRoot configuration;
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddTransient(x => new UserContext(configuration.Get<string>("Data:DefaultConnection:ConnectionString")));
+            services.AddTransient<UserStore>();
+            services.AddTransient<UserManager>();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IApplicationEnvironment env)
         {
+            var builder = new ConfigurationBuilder()
+                             .SetBasePath(env.ApplicationBasePath)
+                             .AddJsonFile("config.json");
+            configuration = builder.Build();
             // Add the platform handler to the request pipeline.
             app.UseIISPlatformHandler();
-
-            app.Run(async (context) =>
+            app.UseMvc(m =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                m.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
             });
         }
     }
