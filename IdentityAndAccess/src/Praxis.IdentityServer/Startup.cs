@@ -6,6 +6,8 @@ using Microsoft.Dnx.Runtime;
 using Microsoft.Framework.Logging;
 using Serilog;
 using System;
+using Microsoft.Framework.Configuration;
+using Praxis.IdentityServer.Configuration;
 
 namespace Praxis.IdentityServer
 {
@@ -33,20 +35,21 @@ namespace Praxis.IdentityServer
         {
             app.UseIISPlatformHandler();
             app.UseDeveloperExceptionPage();
-
+            var builder = new ConfigurationBuilder()
+                                .SetBasePath(env.ApplicationBasePath)
+                                .AddJsonFile("config.json");
+            var configuration = builder.Build();
             var certFile = env.ApplicationBasePath + "\\idsrv3test.pfx";
-
+            Microsoft.Owin.Security.Fac
             var idsrvOptions = new IdentityServerOptions
             {
-                Factory = new IdentityServerServiceFactory()
-                                .UseInMemoryUsers(Users.Get())
-                                .UseInMemoryClients(Clients.Get())
-                                .UseInMemoryScopes(Scopes.Get()),
+                Factory = IdentityServerFactory.Configure(configuration.Get<string>("Data:DefaultConnection:ConnectionString")),
 
                 SigningCertificate = new X509Certificate2(certFile, "idsrv3test"),
                 AuthenticationOptions = new AuthenticationOptions
                 {
                     EnablePostSignOutAutoRedirect = true
+
                 },
 
                 RequireSsl = false
