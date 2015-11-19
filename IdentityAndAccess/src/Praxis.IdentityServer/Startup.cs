@@ -38,6 +38,7 @@ namespace Praxis.IdentityServer
 
             var idsrvOptions = new IdentityServerOptions
             {
+                SiteName = "Praxis Identity Server",
                 Factory = new IdentityServerServiceFactory()
                                 .UseInMemoryUsers(Users.Get())
                                 .UseInMemoryClients(Clients.Get())
